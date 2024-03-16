@@ -11,3 +11,15 @@ export async function getAll() {
 export async function getById(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export async function create(productData) {
+    return sendRequest(BASE_URL, 'POST', productData);
+}
+
+export async function update(productData) {
+    return sendRequest(`${BASE_URL}/${productData._id}`, 'PUT', productData);
+}
+
+export async function deleteOne(id) {
+    return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
+}

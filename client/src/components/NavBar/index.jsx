@@ -8,6 +8,7 @@ export function NavBar({ user, setUser }) {
                 <>
                     <Link to='/products'>Products</Link>
                     <Link to='/shops'>Shops</Link>
+                    <Link to='/products/add'>+ Product</Link>
                     <Link to='/cart'>Cart</Link>
                     <Link
                         to=''
