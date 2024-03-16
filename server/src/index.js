@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const logger = require('morgan');
-const checkToken = require('./middleware/check-token')
+const checkToken = require('./middleware/check-token');
 const usersApi = require('./routes/api/users');
 
 // Connect to the database
@@ -30,6 +30,12 @@ app.get('/api/test', (req, res) => {
 });
 
 app.use('/api/users', usersApi);
+
+// Protect all routes below from anonymous users
+const ensureLoggedIn = require('./config/ensureLoggedIn');
+app.use('/api/products', require('./routes/api/products'));
+app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
+app.use('/api/shops', ensureLoggedIn, require('./routes/api/shops'));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX requests
