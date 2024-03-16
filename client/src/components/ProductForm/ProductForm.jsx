@@ -3,11 +3,14 @@ import * as productsAPI from '../../utilities/products-api';
 
 export function ProductForm({ user, products, setProducts }) {
     const [form, setForm] = useState({
-        name: '',
-        category: '',
-        price: '',
-        description: '',
-        img: '',
+        // name: '',
+        // category: '',
+        // user: user._id,
+        // price: '',
+        // description: '',
+        // img: '',
+        selectValue: '',
+        textValue: '',
     });
 
     const handleChange = (event) => {
@@ -17,11 +20,14 @@ export function ProductForm({ user, products, setProducts }) {
         });
     };
 
+    const handleSelectChange = (event) => {
+        setForm({ ...form, selectValue: event.target.value });
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         await productsAPI.create(form);
         console.log('submitting form');
-        console.log(newProduct.data);
     };
 
     const disabled =
@@ -44,7 +50,12 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product name'
                     />
                     <label htmlFor=''>Category</label>
-                    <select id='category' name='category'>
+                    <select
+                        id='category'
+                        name='category'
+                        value={form.category}
+                        onChange={handleSelectChange}>
+                        <option value=''>Select...</option>
                         <option value='accessories'>Accessory</option>
                         <option value='art'>Art</option>
                         <option value='baby'>Baby</option>
@@ -74,7 +85,7 @@ export function ProductForm({ user, products, setProducts }) {
                         onChange={handleChange}
                         placeholder='Image Upload'
                     />
-                    <button>Create product</button>
+                    <button disabled={disabled}>Create product</button>
                 </form>
             </div>
         </>
