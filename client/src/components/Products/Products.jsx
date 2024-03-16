@@ -1,10 +1,23 @@
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { getAll } from '../../utilities/products-api';
 
 export function Products({ user }) {
+    const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState(null);
+
+    useEffect(function () {
+        async function getProducts() {
+            const products = await getAll();
+            setProducts(products);
+        }
+        getProducts();
+    }, []);
+
     return (
         <>
             <div>
-                <h1 className='text-blue-600'>Products</h1>
+                <pre>{JSON.stringify(products, null, 2)}</pre>
                 <h2>
                     {user ? (
                         <Link to='/cart'>Product A</Link>

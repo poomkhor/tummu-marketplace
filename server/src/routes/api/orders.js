@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ordersCtrl = require('../../controllers/api/orders');
+const ordersCtrl = require('../../controllers/orders');
 
 // GET /api/orders
 router.get('/', ordersCtrl.getOrderHistory);

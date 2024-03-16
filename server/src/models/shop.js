@@ -13,7 +13,6 @@ const shopSchema = new Schema({
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
-        required: true,
     },
     products: [
         {
@@ -23,6 +22,4 @@ const shopSchema = new Schema({
     ],
 });
 
-const Shop = mongoose.model('Shop', shopSchema);
-
-module.exports = Shop;
+module.exports = mongoose.model('Shop', shopSchema);

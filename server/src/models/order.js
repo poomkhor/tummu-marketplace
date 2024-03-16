@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const product = require('./product');
+// const product = require('./product');
 
 const lineItemSchema = new Schema(
     {
         qty: { type: Number, default: 1 },
-        item: product,
+        item: { type: Schema.Types.ObjectId, ref: 'Product' },
     },
     {
         timestamps: true,
@@ -13,11 +13,11 @@ const lineItemSchema = new Schema(
     }
 );
 
-// Add an extPrice to the line item
-lineItemSchema.virtual('extPrice').get(function () {
-    // 'this' is bound to the lineItem subdocument
-    return this.qty * this.item.price;
-});
+// // Add an extPrice to the line item
+// lineItemSchema.virtual('extPrice').get(function () {
+//     // 'this' is bound to the lineItem subdocument
+//     return this.qty * this.item.price;
+// });
 
 const orderSchema = new Schema(
     {
@@ -80,10 +80,10 @@ orderSchema.methods.addItemToCart = async function (itemId) {
     } else {
         // Get the item from the "catalog"
         // Note how the mongoose.model method behaves as a getter when passed one arg vs. two
-        const Item = mongoose.model('Item');
-        const item = await Item.findById(itemId);
+        const Product = mongoose.model('Product');
+        const product = await Product.findById(itemId);
         // The qty of the new lineItem object being pushed in defaults to 1
-        cart.lineItems.push({ item });
+        cart.lineItems.push({ product });
     }
     // return the save() method's promise
     return cart.save();
