@@ -6,8 +6,9 @@ export function NavBar({ user, setUser }) {
         <nav>
             {user ? (
                 <>
-                    <Link to='/orders'>All Orders</Link>
-                    <Link to='/orders/new'>New Order</Link>
+                    <Link to='/products'>Products</Link>
+                    <Link to='/shops'>Shops</Link>
+                    <Link to='/cart'>Cart</Link>
                     <Link
                         to=''
                         onClick={() => {
@@ -20,7 +21,12 @@ export function NavBar({ user, setUser }) {
                     </Link>
                 </>
             ) : (
-                <Link to='/login'>Login</Link>
+                <>
+                    <Link to='/products'>Products</Link>
+                    <Link to='/shops'>Shops</Link>
+                    <Link to='/signup'>Sign Up</Link>
+                    <Link to='/login'>Log In</Link>
+                </>
             )}
         </nav>
     );

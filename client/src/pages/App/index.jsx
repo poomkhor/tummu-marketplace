@@ -5,8 +5,13 @@ import { AuthPage } from '../AuthPage';
 import { OrderHistoryPage } from '../OrderHistoryPage/OrderHistoryPage';
 import { getUser } from '../../utilities/users-service';
 import { NavBar } from '../../components/NavBar';
+import { LoginForm } from '../../components/LoginForm';
+import { SignUpForm } from '../../components/SignUpForm';
+import { Products } from '../../components/Products/Products';
+import { Shops } from '../../components/Shops/Shops';
+import { Cart } from '../../components/Cart/Cart';
 
-import style from './style.module.css';
+// import style from './style.module.css';
 
 function App() {
     const [user, setUser] = useState(() => {
@@ -18,23 +23,19 @@ function App() {
             <header>
                 <NavBar user={user} setUser={setUser} />
             </header>
-            <main className='App'>
-                {user ? (
-                    <Routes>
-                        <Route
-                            path='/'
-                            element={<Navigate to='/orders' replace />}
-                        />
-                        <Route path='/orders/new' element={<NewOrderPage />} />
-                        <Route path='/orders' element={<OrderHistoryPage />} />
-                        <Route path='*' element={<Navigate to='/' replace />} />
-                    </Routes>
-                ) : (
-                    <Routes>
-                        <Route path='/auth' element={<AuthPage setUser={setUser} />} />
-                        <Route path='*' element={<Navigate to='/auth' />} />
-                    </Routes>
-                )}
+            <main>
+                <Routes>
+                    <Route
+                        path='/'
+                        element={<Navigate to='/products' replace />}
+                    />
+                    <Route path='/products' element={<Products />} />
+                    <Route path='/shops' element={<Shops />} />
+                    <Route path='/cart' element={<Cart />} />
+                    <Route path='/login' element={<LoginForm />} />
+                    <Route path='/signup' element={<SignUpForm />} />
+                    <Route path='*' element={<Navigate to='/' replace />} />
+                </Routes>
             </main>
             <footer></footer>
         </>
