@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { NewOrderPage } from '../NewOrderPage/NewOrderPage';
 import { AuthPage } from '../AuthPage';
-import { OrderHistoryPage } from '../OrderHistoryPage/OrderHistoryPage';
 import { getUser } from '../../utilities/users-service';
 import { NavBar } from '../../components/NavBar';
 import { LoginForm } from '../../components/LoginForm';
@@ -90,7 +88,17 @@ function App() {
                     />
                     <Route path='/shops' element={<Shops />} />
                     <Route path='/regis' element={<ShopForm />} />
-                    <Route path='/cart' element={<Cart cart={cart} />} />
+                    <Route
+                        path='/cart'
+                        element={
+                            <Cart
+                                user={user}
+                                cart={cart}
+                                handleChangeQty={handleChangeQty}
+                                handleCheckOut={handleCheckOut}
+                            />
+                        }
+                    />
                     <Route
                         path='/login'
                         element={<LoginForm user={user} setUser={setUser} />}

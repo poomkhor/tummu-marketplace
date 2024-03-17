@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { login } from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
 export function LoginForm({ setUser }) {
+    const navigate = useNavigate();
+
     const [form, setForm] = useState({
         email: '',
         password: '',
@@ -9,9 +12,9 @@ export function LoginForm({ setUser }) {
 
     const [error, setError] = useState(null);
 
-    // const handleLogin = () => {
-    //     history.push('/products');
-    // };
+    const handleLogin = () => {
+        navigate('/products');
+    };
 
     const handleChange = (event) => {
         setForm({
@@ -53,7 +56,10 @@ export function LoginForm({ setUser }) {
                         onChange={handleChange}
                         required
                     />
-                    <button type='submit' disabled={disable}>
+                    <button
+                        type='submit'
+                        disabled={disable}
+                        onClick={handleLogin}>
                         Login
                     </button>
                 </form>
