@@ -1,34 +1,26 @@
-import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { getAll } from '../../utilities/products-api';
+import { ProductItem } from '../ProductItem/ProductItem';
+import { SimpleGrid } from '@chakra-ui/react';
 
-export function Products({ user, products, setProducts }) {
-    const [cart, setCart] = useState(null);
 
-    useEffect(function () {
-        async function getProducts() {
-            const products = await getAll();
-            setProducts(products);
-        }
-        getProducts();
-    }, []);
+export function Products({ user, products, cart, handleAddToOrder}) {
 
     return (
         <>
-            <div>
-                <div>
-                    {products.map((product) => {
-                        return (
-                            <div key={product._id}>
-                                <h2>{product.name}</h2>
-                                <p>{product.price}</p>
-                                <p>{product.description}</p>
-                                <p>{product.img}</p>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            <SimpleGrid
+                spacing={4}
+                templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+                {products.map((product) => {
+                    return (
+                        <ProductItem
+                            key={product._id}
+                            product={product}
+                            user={user}
+                            cart={cart}
+                            handleAddToOrder={handleAddToOrder}
+                        />
+                    );
+                })}
+            </SimpleGrid>
         </>
     );
 }

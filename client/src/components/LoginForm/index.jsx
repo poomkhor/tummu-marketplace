@@ -9,6 +9,10 @@ export function LoginForm({ setUser }) {
 
     const [error, setError] = useState(null);
 
+    // const handleLogin = () => {
+    //     history.push('/products');
+    // };
+
     const handleChange = (event) => {
         setForm({
             ...form,

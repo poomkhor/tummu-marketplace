@@ -3,14 +3,14 @@ import * as productsAPI from '../../utilities/products-api';
 
 export function ProductForm({ user, products, setProducts }) {
     const [form, setForm] = useState({
-        // name: '',
-        // category: '',
-        // user: user._id,
-        // price: '',
-        // description: '',
-        // img: '',
+        name: '',
+        category: '',
+        user: user._id,
+        price: '',
+        description: '',
+        img: '',
         selectValue: '',
-        textValue: '',
+
     });
 
     const handleChange = (event) => {

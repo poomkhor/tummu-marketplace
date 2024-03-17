@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { NewOrderPage } from '../NewOrderPage/NewOrderPage';
 import { AuthPage } from '../AuthPage';
@@ -12,6 +12,8 @@ import { Shops } from '../../components/Shops/Shops';
 import { Cart } from '../../components/Cart/Cart';
 import { ShopForm } from '../../components/ShopForm/ShopForm';
 import { ProductForm } from '../../components/ProductForm/ProductForm';
+import { getAll } from '../../utilities/products-api';
+import * as ordersAPI from '../../utilities/orders-api';
 
 // import style from './style.module.css';
 
@@ -20,6 +22,39 @@ function App() {
         return getUser();
     });
     const [products, setProducts] = useState([]);
+    const [cart, setCart] = useState([]);
+
+    useEffect(function () {
+        async function getProducts() {
+            const products = await getAll();
+            setProducts(products);
+        }
+        getProducts();
+
+        async function getCart() {
+            const cart = await ordersAPI.getCart();
+            setCart(cart);
+        }
+        if (user) {
+            getCart();
+        }
+    }, []);
+
+    async function handleAddToOrder(itemId) {
+        console.log('adding item to order', itemId);
+        const cart = await ordersAPI.addItemToCart(itemId);
+        setCart(cart);
+    }
+
+    async function handleChangeQty(itemId, newQty) {
+        const cart = await ordersAPI.setItemQtyInCart(itemId, newQty);
+        setCart(cart);
+    }
+
+    async function handleCheckOut() {
+        await ordersAPI.checkout();
+        navigate('/orders');
+    }
 
     return (
         <>
@@ -37,7 +72,9 @@ function App() {
                         element={
                             <Products
                                 products={products}
-                                setProducts={setProducts}
+                                user={user}
+                                cart={cart}
+                                handleAddToOrder={handleAddToOrder}
                             />
                         }
                     />
@@ -53,9 +90,15 @@ function App() {
                     />
                     <Route path='/shops' element={<Shops />} />
                     <Route path='/regis' element={<ShopForm />} />
-                    <Route path='/cart' element={<Cart />} />
-                    <Route path='/login' element={<LoginForm />} />
-                    <Route path='/signup' element={<SignUpForm />} />
+                    <Route path='/cart' element={<Cart cart={cart} />} />
+                    <Route
+                        path='/login'
+                        element={<LoginForm user={user} setUser={setUser} />}
+                    />
+                    <Route
+                        path='/signup'
+                        element={<SignUpForm user={user} setUser={setUser} />}
+                    />
                     <Route path='*' element={<Navigate to='/' replace />} />
                 </Routes>
             </main>
