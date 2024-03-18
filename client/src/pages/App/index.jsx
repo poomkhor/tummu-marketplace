@@ -21,7 +21,7 @@ function App() {
     });
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
-
+    console.log(cart);
     useEffect(function () {
         async function getProducts() {
             const products = await getAll();
@@ -33,13 +33,12 @@ function App() {
             const cart = await ordersAPI.getCart();
             setCart(cart);
         }
-        if (user) {
-            getCart();
-        }
+        getCart();
     }, []);
 
     async function handleAddToOrder(itemId) {
         console.log('adding item to order', itemId);
+        console.log(user);
         const cart = await ordersAPI.addItemToCart(itemId);
         setCart(cart);
     }

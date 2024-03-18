@@ -12,10 +12,6 @@ export function LoginForm({ setUser }) {
 
     const [error, setError] = useState(null);
 
-    const handleLogin = () => {
-        navigate('/products');
-    };
-
     const handleChange = (event) => {
         setForm({
             ...form,
@@ -28,6 +24,7 @@ export function LoginForm({ setUser }) {
         try {
             const user = await login(form);
             setUser(user);
+            navigate('/products');
         } catch (e) {
             console.error(e);
             setError(`Incorrect username or password.`);
@@ -56,10 +53,7 @@ export function LoginForm({ setUser }) {
                         onChange={handleChange}
                         required
                     />
-                    <button
-                        type='submit'
-                        disabled={disable}
-                        onClick={handleLogin}>
+                    <button type='submit' disabled={disable}>
                         Login
                     </button>
                 </form>

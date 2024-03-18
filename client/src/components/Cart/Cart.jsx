@@ -1,3 +1,5 @@
+import { CartItem } from '../CartItem/CartItem';
+
 export function Cart({ user, cart, handleChangeQty, handleCheckOut }) {
     if (!cart) return null;
     console.log(cart);
@@ -8,7 +10,7 @@ export function Cart({ user, cart, handleChangeQty, handleCheckOut }) {
             {cart.lineItems.map((item) => (
                 <CartItem
                     key={item._id}
-                    item={item}
+                    lineItem={item}
                     isPaid={cart.isPaid}
                     handleChangeQty={handleChangeQty}
                 />
