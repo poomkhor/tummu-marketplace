@@ -1,4 +1,5 @@
 import { CartItem } from '../CartItem/CartItem';
+import * as orderAPI from '../../utilities/orders-api';
 
 export function Cart({ user, cart, handleChangeQty, handleCheckOut }) {
     if (!cart) return null;

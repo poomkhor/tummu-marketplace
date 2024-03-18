@@ -56,6 +56,7 @@ orderSchema.virtual('orderId').get(function () {
 orderSchema.statics.getCart = function (userId) {
     // 'this' is bound to the model (don't use an arrow function)
     // return the promise that resolves to a cart (the user's unpaid order)
+
     return this.findOneAndUpdate(
         // query
         { user: userId, isPaid: false },
@@ -63,7 +64,7 @@ orderSchema.statics.getCart = function (userId) {
         { user: userId },
         // upsert option creates the doc if it doesn't exist!
         { upsert: true, new: true }
-    );
+    ).populate('lineItems.item');
 };
 
 // Instance method for adding an item to a cart (unpaid order)

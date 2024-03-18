@@ -18,7 +18,6 @@ export function CartItem({ lineItem, handleChangeQty, handleCheckOut }) {
             <Stack>
                 <CardBody>
                     <Heading size='md'>{lineItem.item.name}</Heading>
-
                     <Text py='2'>{lineItem.item.description}</Text>
                 </CardBody>
             </Stack>

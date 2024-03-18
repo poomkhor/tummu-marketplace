@@ -20,8 +20,8 @@ function App() {
         return getUser();
     });
     const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    console.log(cart);
+    const [cart, setCart] = useState(null);
+
     useEffect(function () {
         async function getProducts() {
             const products = await getAll();
