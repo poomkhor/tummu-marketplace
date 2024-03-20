@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import * as productsAPI from '../../utilities/products-api';
 
 export function ProductForm({ user, products, setProducts }) {
     const [form, setForm] = useState({
-        // name: '',
-        // category: '',
-        // user: user._id,
-        // price: '',
-        // description: '',
-        // img: '',
-        selectValue: '',
-        textValue: '',
+        name: '',
+        category: '',
+        user: user._id,
+        price: '',
+        description: '',
+        images: [],
     });
 
     const handleChange = (event) => {
@@ -20,28 +19,61 @@ export function ProductForm({ user, products, setProducts }) {
         });
     };
 
+    const handlePhoto = (event) => {
+        setForm({ ...form, images: Array.from(event.target.files) });
+        console.log(form.images);
+    };
+
     const handleSelectChange = (event) => {
-        setForm({ ...form, selectValue: event.target.value });
+        setForm({ ...form, category: event.target.value });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        await productsAPI.create(form);
-        console.log('submitting form');
+        const formData = new FormData();
+        formData.append('name', form.name);
+        formData.append('category', form.category);
+        formData.append('user', user.sub);
+        formData.append('price', form.price);
+        formData.append('description', form.description);
+        form.images.forEach((image) => {
+            formData.append('images', image);
+        });
+
+        try {
+            const response = await axios.post(
+                '/api/products/uploads',
+                formData
+                // {
+                //     headers: {
+                //         'Content-Type': 'multipart/form-data',
+                //     },
+                // }
+            );
+            console.log(
+                'Product images uploaded successfully:',
+                response.data.files
+            );
+        } catch (error) {
+            console.error('Error uploading product images:', error);
+        }
+        // await productsAPI.create(form);
     };
 
     const disabled =
         form.name === '' ||
         form.price === '' ||
         form.description === '' ||
-        form.img === '' ||
         form.category === '';
 
     return (
         <>
             <div>
                 <h1 className='text-blue-600'>Product Form</h1>
-                <form autoComplete='off' onSubmit={handleSubmit}>
+                <form
+                    autoComplete='off'
+                    onSubmit={handleSubmit}
+                    encType='multipart/form-data'>
                     <input
                         type='text'
                         name='name'
@@ -79,10 +111,11 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product description'
                     />
                     <input
-                        type='text'
-                        name='img'
-                        value={form.img}
-                        onChange={handleChange}
+                        type='file'
+                        multiple='multiple'
+                        accept='.png, .jpg, .jpeg'
+                        name='images'
+                        onChange={handlePhoto}
                         placeholder='Image Upload'
                     />
                     <button disabled={disabled}>Create product</button>

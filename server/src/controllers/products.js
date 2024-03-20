@@ -6,6 +6,7 @@ module.exports = {
     create: createProduct,
     update: updateProduct,
     delete: deleteProduct,
+    upload: uploadProduct,
 };
 
 async function index(req, res) {
@@ -26,6 +27,19 @@ async function show(req, res) {
 async function createProduct(req, res) {
     const product = await Product.create(req.body);
     res.json(product);
+}
+
+async function uploadProduct(req, res) {
+    req.body.images = req.files.map((file) => {
+        return { name: file.originalname };
+    });
+
+    const product = await Product.create(req.body);
+    console.log(req.body); // Output request body to console
+    res.json({
+        message: 'Product images uploaded successfully',
+        files: req.files,
+    });
 }
 
 async function updateProduct(req, res) {

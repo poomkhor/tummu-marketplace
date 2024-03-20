@@ -17,8 +17,18 @@ export function CartItem({ lineItem, handleChangeQty, handleCheckOut }) {
             variant='outline'>
             <Stack>
                 <CardBody>
-                    <Heading size='md'>{lineItem.item.name}</Heading>
-                    <Text py='2'>{lineItem.item.description}</Text>
+                    <Image
+                        src={`/user-upload/${lineItem.item.images[0]?.name}`}
+                        alt={lineItem.item.name}
+                    />
+                    <aside>
+                        <Heading size='md'>{lineItem.item.name}</Heading>
+                        <Text py='2'>{lineItem.item.description}</Text>
+                    </aside>
+                    <aside>
+                        <Text>{lineItem.qty}</Text>
+                        <Text>{lineItem.item.price}</Text>
+                    </aside>
                 </CardBody>
             </Stack>
         </Card>

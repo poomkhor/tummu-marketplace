@@ -7,9 +7,12 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 const express = require('express');
+const multer = require('multer');
+const cors = require('cors');
 const logger = require('morgan');
 const checkToken = require('./middleware/check-token');
 const usersApi = require('./routes/api/users');
+const Product = require('./models/product');
 
 // Connect to the database
 require('./config/database');
@@ -19,6 +22,7 @@ const app = express();
 app.use(logger('dev'));
 app.use(express.json());
 
+app.use('/user-upload', express.static(path.join(__dirname, 'uploads')));
 app.use(express.static(path.join(__dirname, '..', '..', 'client', 'dist')));
 
 // Middleware to verify token and assign user object of payload to req.user.

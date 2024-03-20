@@ -23,7 +23,10 @@ export function ProductItem({ product, handleAddToOrder, user, cart }) {
             <Card maxW='sm'>
                 <CardBody>
                     {/* <Image src={product.img} borderRadius='lg' /> */}
-                    <img src={product.img} alt={product.name} />
+                    <img
+                        src={`/user-upload/${product.images[0]?.name}`}
+                        alt={product.name}
+                    />
                     <Stack mt='6' spacing='3'>
                         <Heading size='md'>{product.name}</Heading>
                         <Text>{product.description}</Text>

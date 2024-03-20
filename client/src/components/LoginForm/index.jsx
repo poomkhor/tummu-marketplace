@@ -57,6 +57,10 @@ export function LoginForm({ setUser }) {
                         Login
                     </button>
                 </form>
+                <div>Do not have an account yet.</div>
+                <button>
+                    <a href='/signup'>Sign Up</a>
+                </button>
             </div>
             <p className='error-message'>{error}</p>
         </div>
