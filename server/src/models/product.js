@@ -16,6 +16,7 @@ const productSchema = new Schema(
         description: { type: String, required: true },
         category: { type: String, required: true },
         user: { type: Schema.Types.ObjectId, ref: 'User' },
+        // remove shop schema for later development, currently refer shop by user
         // shop: { type: Schema.Types.ObjectId, ref: 'Shop' },
         price: { type: Number, required: true },
         images: { type: Array, required: true },

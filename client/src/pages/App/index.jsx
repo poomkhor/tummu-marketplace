@@ -10,6 +10,7 @@ import { Shops } from '../../components/Shops/Shops';
 import { Cart } from '../../components/Cart/Cart';
 import { ShopForm } from '../../components/ShopForm/ShopForm';
 import { ProductForm } from '../../components/ProductForm/ProductForm';
+import { ProductsListing } from '../../components/ProductsListing/ProductsListing';
 import { getAll } from '../../utilities/products-api';
 import * as ordersAPI from '../../utilities/orders-api';
 
@@ -78,9 +79,9 @@ function App() {
                     <Route
                         path='/products/add'
                         element={
-                            <ProductForm
+                            <ProductsListing
                                 user={user}
-                                products={setProducts}
+                                products={products}
                                 setProducts={setProducts}
                             />
                         }
