@@ -1,33 +1,54 @@
-# MERN Starter
+<p align='center'><img src="staticfiles/planner/images/mainlogo.png" width="400"></p>
 
-Provides a starter for a MERN application with client and server in separate modules.
+# ✈️ Tummu Marketplace ✈️
 
-## Working with the code
+This is a group project where three team members collaborated to tackle various challenges, learning valuable lessons along the way.
 
-Install dependencies. Will automatically install all dependencies for client and server.
+## 🌏 Introduction
 
-```
-npm install
-```
+TripMixer is a robust Full-Stack App built with HTML, CSS, Bootstrap5, Python, Django, PostgreSQL, Amazon S3, Docker and fly.io.
+This app is ultimate gateway to crafting unforgettable journeys. With our intuitive platform, you can effortlessly plan your holiday, select your dream destinations, and tailor a custom itinerary that perfectly suits your travel style. But TripMixer is more than just a planning tool; it's a vibrant community of travelers.
 
-Run the client and server concurrently in dev mode:
+## 🔎 Explore the App
 
-```
-npm run dev
-```
+Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer.fly.dev/) now live on fly.io.
 
-Build the client
+## 📝 Planning & Problem Solving 🚩
 
-```
-npm run build
-```
+-   Laid out the ERD
+-   Draw up wireframe
+-   Set up Django Development Environment and Urls Path, Views and HTML templates
+-   Work Individually on each views and urls as well as HTML templates
+-   Regroup to deploy and/or solve coding issues
 
-Start the production server
+<img src="staticfiles/planner/images/wireframes.png" style="max-width:85%;">
+<img src="staticfiles/planner/images/ERD.png" style="max-width:85%;">
 
-```
-npm start
-```
+## 📷 App Screenshots
 
-## Environment variables.
+## 🤖 Technology used:
 
-Copy `.env.example` to `.env` and update as needed.
+-   Python
+-   Django
+-   PostgreSQL
+-   Amazon S3
+-   fly.io
+-   Docker
+-   HTML
+-   CSS
+-   Bootstrap5
+
+## 💪 Challenges Faced and Conquered 💪
+
+Despite the team project being less challenging than anticipated, we still encountered and overcame several hurdles together:
+
+-   Collaborating effectively, managing merge conflicts, and maintaining alignment.
+-   Learning to handle forms, especially for 'update' operations, and styling in class-based views.
+-   Adding Bootstrap5 Modals on Edit and Add pages
+-   Deploying the app on Fly.io.
+
+## 🚀 Future features
+
+-   Add 'Follow' button, so that a user can follow other users
+-   Add location autofill features
+-   Add features to let user see post from the one they are following
