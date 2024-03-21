@@ -7,24 +7,37 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
+    SimpleGrid,
+    useDisclosure,
+    Card,
+    CardBody,
+    Heading,
+    Stack,
+    Text,
 } from '@chakra-ui/react';
-import { useDisclosure } from '@chakra-ui/react';
 import { ProductForm } from '../ProductForm/ProductForm';
 
 export function ProductsListing({ user, products, setProducts }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const productsListing = products.map((product) => {
-        if (product.user === user._id) {
+        if (product.user === user.sub) {
             return (
-                <div key={product._id}>
-                    <img
-                        src={`/user-upload/${product.images[0]?.name}`}
-                        alt={product.name}
-                    />
-                    <h3>{product.name}</h3>
-                    <p>{product.description}</p>
-                    <p>{product.price}</p>
-                </div>
+                <Card maxW='sm'>
+                    <CardBody>
+                        {/* <Image src={product.img} borderRadius='lg' /> */}
+                        <img
+                            src={`/user-upload/${product.images[0]?.name}`}
+                            alt={product.name}
+                        />
+                        <Stack mt='6' spacing='3'>
+                            <Heading size='md'>{product.name}</Heading>
+                            <Text>{product.description}</Text>
+                            <Text color='blue.600' fontSize='2xl'>
+                                ${product.price}
+                            </Text>
+                        </Stack>
+                    </CardBody>
+                </Card>
             );
         }
     });
@@ -47,16 +60,23 @@ export function ProductsListing({ user, products, setProducts }) {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={onClose}>
-                            Close
+                        <Button
+                            type='submit'
+                            form='product-form'
+                            colorScheme='blue'
+                            mr={3}
+                            onClick={onClose}>
+                            Submit
                         </Button>
-                        <Button variant='ghost'>Secondary Action</Button>
+                        {/* <Button variant='ghost'>Secondary Action</Button> */}
                     </ModalFooter>
                 </ModalContent>
             </Modal>
-            <div>
-                <div>{productsListing}</div>
-            </div>
+            <SimpleGrid
+                spacing={4}
+                templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
+                {productsListing}
+            </SimpleGrid>
         </>
     );
 }

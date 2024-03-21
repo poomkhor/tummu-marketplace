@@ -14,10 +14,10 @@ const lineItemSchema = new Schema(
 );
 
 // // Add an extPrice to the line item
-// lineItemSchema.virtual('extPrice').get(function () {
-//     // 'this' is bound to the lineItem subdocument
-//     return this.qty * this.item.price;
-// });
+lineItemSchema.virtual('extPrice').get(function () {
+    // 'this' is bound to the lineItem subdocument
+    return this.qty * this.item.price;
+});
 
 const orderSchema = new Schema(
     {

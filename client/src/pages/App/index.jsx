@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import { AuthPage } from '../AuthPage';
 import { getUser } from '../../utilities/users-service';
 import { NavBar } from '../../components/NavBar';
@@ -22,6 +22,8 @@ function App() {
     });
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState(null);
+
+    const navigate = useNavigate();
 
     useEffect(function () {
         async function getProducts() {

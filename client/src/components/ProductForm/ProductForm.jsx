@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import * as productsAPI from '../../utilities/products-api';
 
 export function ProductForm({ user, products, setProducts }) {
@@ -11,6 +12,8 @@ export function ProductForm({ user, products, setProducts }) {
         description: '',
         images: [],
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setForm({
@@ -54,6 +57,7 @@ export function ProductForm({ user, products, setProducts }) {
                 'Product images uploaded successfully:',
                 response.data.files
             );
+            navigate('/products/add');
         } catch (error) {
             console.error('Error uploading product images:', error);
         }
@@ -71,6 +75,7 @@ export function ProductForm({ user, products, setProducts }) {
             <div>
                 <h1 className='text-blue-600'>Product Form</h1>
                 <form
+                    id='product-form'
                     autoComplete='off'
                     onSubmit={handleSubmit}
                     encType='multipart/form-data'>
@@ -118,7 +123,7 @@ export function ProductForm({ user, products, setProducts }) {
                         onChange={handlePhoto}
                         placeholder='Image Upload'
                     />
-                    <button disabled={disabled}>Create product</button>
+                    {/* <button disabled={disabled}>Create product</button> */}
                 </form>
             </div>
         </>

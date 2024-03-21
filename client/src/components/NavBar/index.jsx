@@ -7,7 +7,7 @@ export function NavBar({ user, setUser }) {
             {user ? (
                 <>
                     <Link to='/products'>Products</Link>
-                    <Link to='/shops'>Shops</Link>
+                    {/* <Link to='/shops'>Shops</Link> */}
                     <Link to='/products/add'>+ Product</Link>
                     <Link to='/cart'>Cart</Link>
                     <Link
@@ -24,7 +24,7 @@ export function NavBar({ user, setUser }) {
             ) : (
                 <>
                     <Link to='/products'>Products</Link>
-                    <Link to='/shops'>Shops</Link>
+                    {/* <Link to='/shops'>Shops</Link> */}
                     <Link to='/signup'>Sign Up</Link>
                     <Link to='/login'>Log In</Link>
                 </>
