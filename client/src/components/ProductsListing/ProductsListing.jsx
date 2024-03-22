@@ -22,7 +22,7 @@ export function ProductsListing({ user, products, setProducts }) {
     const productsListing = products.map((product) => {
         if (product.user === user.sub) {
             return (
-                <Card maxW='sm'>
+                <Card maxW='sm' className='font-mono'>
                     <CardBody>
                         {/* <Image src={product.img} borderRadius='lg' /> */}
                         <img
@@ -47,41 +47,51 @@ export function ProductsListing({ user, products, setProducts }) {
             <div className='flex justify-center mt-10 mb-10'>
                 <Button onClick={onOpen}>Add New Product</Button>
             </div>
-            <div className='flex justify-around'>
-                <Modal isOpen={isOpen} onClose={onClose}>
-                    <ModalOverlay />
-                    <ModalContent>
-                        <ModalHeader>Fill in product information</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                            <ProductForm
-                                user={user}
-                                products={products}
-                                setProducts={setProducts}
-                            />
-                        </ModalBody>
+            {productsListing.length ? (
+                <>
+                    <div className='flex justify-around'>
+                        <Modal isOpen={isOpen} onClose={onClose}>
+                            <ModalOverlay />
+                            <ModalContent>
+                                <ModalHeader>
+                                    Fill in product information
+                                </ModalHeader>
+                                <ModalCloseButton />
+                                <ModalBody>
+                                    <ProductForm
+                                        user={user}
+                                        products={products}
+                                        setProducts={setProducts}
+                                    />
+                                </ModalBody>
 
-                        <ModalFooter>
-                            <Button
-                                type='submit'
-                                form='product-form'
-                                colorScheme='blue'
-                                mr={3}
-                                onClick={onClose}>
-                                Submit
-                            </Button>
-                            {/* <Button variant='ghost'>Secondary Action</Button> */}
-                        </ModalFooter>
-                    </ModalContent>
-                </Modal>
-            </div>
-            <div className='container mx-auto'>
-                <SimpleGrid
-                    spacing={4}
-                    templateColumns='repeat(3, minmax(200px, 1fr))'>
-                    {productsListing}
-                </SimpleGrid>
-            </div>
+                                <ModalFooter>
+                                    <Button
+                                        type='submit'
+                                        form='product-form'
+                                        colorScheme='blue'
+                                        mr={3}
+                                        onClick={onClose}>
+                                        Submit
+                                    </Button>
+                                    {/* <Button variant='ghost'>Secondary Action</Button> */}
+                                </ModalFooter>
+                            </ModalContent>
+                        </Modal>
+                    </div>
+                    <div className='container mx-auto'>
+                        <SimpleGrid
+                            spacing={4}
+                            templateColumns='repeat(3, minmax(200px, 1fr))'>
+                            {productsListing}
+                        </SimpleGrid>
+                    </div>
+                </>
+            ) : (
+                <div className='flex justify-center mt-10 mb-10'>
+                    <h1>No products found</h1>
+                </div>
+            )}
         </center>
     );
 }

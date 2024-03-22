@@ -72,15 +72,16 @@ export function ProductForm({ user, products, setProducts }) {
 
     return (
         <>
-            <div>
+            <div className='font-mono text-2xl'>
                 <h1>Product Form</h1>
                 <form
+                    className='flex flex-col'
                     id='product-form'
                     autoComplete='off'
                     onSubmit={handleSubmit}
                     encType='multipart/form-data'>
                     <input
-                        className='mt-2 mb-2'
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='text'
                         name='name'
                         value={form.name}
@@ -89,7 +90,7 @@ export function ProductForm({ user, products, setProducts }) {
                     />
                     <label htmlFor=''>Category</label>
                     <select
-                        className='mt-2 mb-2'
+                        className='bg-gray-200 rounded-sm mb-5'
                         id='category'
                         name='category'
                         value={form.category}
@@ -104,7 +105,7 @@ export function ProductForm({ user, products, setProducts }) {
                         <option value='jewelry'>Jewelry</option>
                     </select>
                     <input
-                        className='mt-2 mb-2'
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='text'
                         name='price'
                         value={form.price}
@@ -112,7 +113,7 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product price'
                     />
                     <input
-                        className='mt-2 mb-2'
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='text'
                         name='description'
                         value={form.description}
@@ -120,7 +121,7 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product description'
                     />
                     <input
-                        className='mt-2 mb-2'
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='file'
                         multiple='multiple'
                         accept='.png, .jpg, .jpeg'
@@ -128,7 +129,6 @@ export function ProductForm({ user, products, setProducts }) {
                         onChange={handlePhoto}
                         placeholder='Image Upload'
                     />
-                    {/* <button disabled={disabled}>Create product</button> */}
                 </form>
             </div>
         </>

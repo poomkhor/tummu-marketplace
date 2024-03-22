@@ -19,7 +19,7 @@ export function ProductItem({ product, handleAddToOrder, user, cart }) {
     };
 
     return (
-        <>
+        <div className='font-mono'>
             <Card maxW='sm'>
                 <CardBody>
                     {/* <Image src={product.img} borderRadius='lg' /> */}
@@ -59,6 +59,6 @@ export function ProductItem({ product, handleAddToOrder, user, cart }) {
                     </ButtonGroup>
                 </CardFooter>
             </Card>
-        </>
+        </div>
     );
 }
