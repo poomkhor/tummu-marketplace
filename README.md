@@ -1,13 +1,17 @@
-<p align='center'><img src="staticfiles/planner/images/mainlogo.png" width="400"></p>
+<!-- <p align='center'><img src="staticfiles/planner/images/mainlogo.png" width="400"></p> -->
+<!-- NEED NEW LOGO -->
 
 # ✈️ Tummu Marketplace ✈️
 
-This is a group project where three team members collaborated to tackle various challenges, learning valuable lessons along the way.
+This a multivendor ecommerce website project using MERN stack
 
 ## 🌏 Introduction
 
-TripMixer is a robust Full-Stack App built with HTML, CSS, Bootstrap5, Python, Django, PostgreSQL, Amazon S3, Docker and fly.io.
-This app is ultimate gateway to crafting unforgettable journeys. With our intuitive platform, you can effortlessly plan your holiday, select your dream destinations, and tailor a custom itinerary that perfectly suits your travel style. But TripMixer is more than just a planning tool; it's a vibrant community of travelers.
+Welcome to Tummu Market, your premier destination for handcrafted treasures from artisans worldwide. Our platform is a celebration of craftsmanship, offering a curated selection of unique products ranging from home decor to jewelry and gifts.
+
+At Tummu Market, we bridge the gap between artisans and shoppers, showcasing the passion and skill behind each creation. With a diverse array of handmade goods, our marketplace reflects the rich tapestry of cultures and traditions, inviting you to explore and discover the stories behind every piece.
+
+Join us in embracing the beauty of craftsmanship and making a meaningful impact with every purchase. Start your journey at Tummu Market, where every item tells a story and supports the talented artisans who bring them to life.
 
 ## 🔎 Explore the App
 
@@ -17,38 +21,32 @@ Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer
 
 -   Laid out the ERD
 -   Draw up wireframe
--   Set up Django Development Environment and Urls Path, Views and HTML templates
--   Work Individually on each views and urls as well as HTML templates
--   Regroup to deploy and/or solve coding issues
+-   Using MERN-starter to build the project structure
 
-<img src="staticfiles/planner/images/wireframes.png" style="max-width:85%;">
-<img src="staticfiles/planner/images/ERD.png" style="max-width:85%;">
+<!-- <img src="staticfiles/planner/images/wireframes.png" style="max-width:85%;">
+<img src="staticfiles/planner/images/ERD.png" style="max-width:85%;"> -->
 
 ## 📷 App Screenshots
 
 ## 🤖 Technology used:
 
--   Python
--   Django
--   PostgreSQL
--   Amazon S3
--   fly.io
--   Docker
--   HTML
--   CSS
--   Bootstrap5
+-   MongoDB
+-   Express
+-   Node JS
+-   React JS
+-   Chakra UI
+-   Tailwind CSS
 
 ## 💪 Challenges Faced and Conquered 💪
 
-Despite the team project being less challenging than anticipated, we still encountered and overcame several hurdles together:
+The whole react interface is a challenge to work with but I slowly become more accustomed and get each functionality working.
+Challenging feature
 
--   Collaborating effectively, managing merge conflicts, and maintaining alignment.
--   Learning to handle forms, especially for 'update' operations, and styling in class-based views.
--   Adding Bootstrap5 Modals on Edit and Add pages
--   Deploying the app on Fly.io.
+-   Uploading images
+-   Working with Tailwind CSS
 
 ## 🚀 Future features
 
--   Add 'Follow' button, so that a user can follow other users
--   Add location autofill features
--   Add features to let user see post from the one they are following
+-   Add 'Shop' features to display shop and products in the shop.
+-   Add checkout features with stripe.
+-   Add counter display on 'Cart' navbar when product is added to cart.
