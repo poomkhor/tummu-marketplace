@@ -41,7 +41,7 @@ export function SignUpForm({ setUser }) {
         form.password !== form.confirmPassword;
 
     return (
-        <div>
+        <div className='flex justify-center'>
             <div className={`form-container`}>
                 <form autoComplete='off' onSubmit={handleSubmit}>
                     <label>Name</label>

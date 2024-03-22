@@ -73,13 +73,14 @@ export function ProductForm({ user, products, setProducts }) {
     return (
         <>
             <div>
-                <h1 className='text-blue-600'>Product Form</h1>
+                <h1>Product Form</h1>
                 <form
                     id='product-form'
                     autoComplete='off'
                     onSubmit={handleSubmit}
                     encType='multipart/form-data'>
                     <input
+                        className='mt-2 mb-2'
                         type='text'
                         name='name'
                         value={form.name}
@@ -88,6 +89,7 @@ export function ProductForm({ user, products, setProducts }) {
                     />
                     <label htmlFor=''>Category</label>
                     <select
+                        className='mt-2 mb-2'
                         id='category'
                         name='category'
                         value={form.category}
@@ -102,6 +104,7 @@ export function ProductForm({ user, products, setProducts }) {
                         <option value='jewelry'>Jewelry</option>
                     </select>
                     <input
+                        className='mt-2 mb-2'
                         type='text'
                         name='price'
                         value={form.price}
@@ -109,6 +112,7 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product price'
                     />
                     <input
+                        className='mt-2 mb-2'
                         type='text'
                         name='description'
                         value={form.description}
@@ -116,6 +120,7 @@ export function ProductForm({ user, products, setProducts }) {
                         placeholder='Product description'
                     />
                     <input
+                        className='mt-2 mb-2'
                         type='file'
                         multiple='multiple'
                         accept='.png, .jpg, .jpeg'

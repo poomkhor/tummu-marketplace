@@ -43,40 +43,45 @@ export function ProductsListing({ user, products, setProducts }) {
     });
 
     return (
-        <>
-            <Button onClick={onOpen}>Add New Product</Button>
+        <center>
+            <div className='flex justify-center mt-10 mb-10'>
+                <Button onClick={onOpen}>Add New Product</Button>
+            </div>
+            <div className='flex justify-around'>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                        <ModalHeader>Fill in product information</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                            <ProductForm
+                                user={user}
+                                products={products}
+                                setProducts={setProducts}
+                            />
+                        </ModalBody>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
-                <ModalOverlay />
-                <ModalContent>
-                    <ModalHeader>Fill in product information</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                        <ProductForm
-                            user={user}
-                            products={products}
-                            setProducts={setProducts}
-                        />
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button
-                            type='submit'
-                            form='product-form'
-                            colorScheme='blue'
-                            mr={3}
-                            onClick={onClose}>
-                            Submit
-                        </Button>
-                        {/* <Button variant='ghost'>Secondary Action</Button> */}
-                    </ModalFooter>
-                </ModalContent>
-            </Modal>
-            <SimpleGrid
-                spacing={4}
-                templateColumns='repeat(auto-fill, minmax(200px, 1fr))'>
-                {productsListing}
-            </SimpleGrid>
-        </>
+                        <ModalFooter>
+                            <Button
+                                type='submit'
+                                form='product-form'
+                                colorScheme='blue'
+                                mr={3}
+                                onClick={onClose}>
+                                Submit
+                            </Button>
+                            {/* <Button variant='ghost'>Secondary Action</Button> */}
+                        </ModalFooter>
+                    </ModalContent>
+                </Modal>
+            </div>
+            <div className='container mx-auto'>
+                <SimpleGrid
+                    spacing={4}
+                    templateColumns='repeat(3, minmax(200px, 1fr))'>
+                    {productsListing}
+                </SimpleGrid>
+            </div>
+        </center>
     );
 }

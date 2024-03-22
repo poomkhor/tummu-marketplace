@@ -34,7 +34,7 @@ export function LoginForm({ setUser }) {
     const disable = !form.email || !form.password;
 
     return (
-        <div>
+        <div className='flex justify-center mt-10 mb-60'>
             <div className={`form-container`}>
                 <form autoComplete='off' onSubmit={handleSubmit}>
                     <label>Email</label>

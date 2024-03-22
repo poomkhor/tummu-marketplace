@@ -13,6 +13,7 @@ import { ProductForm } from '../../components/ProductForm/ProductForm';
 import { ProductsListing } from '../../components/ProductsListing/ProductsListing';
 import { getAll } from '../../utilities/products-api';
 import * as ordersAPI from '../../utilities/orders-api';
+import { Center } from '@chakra-ui/react';
 
 // import style from './style.module.css';
 
@@ -57,63 +58,69 @@ function App() {
     }
 
     return (
-        <>
-            <header>
-                <NavBar user={user} setUser={setUser} />
-            </header>
-            <main>
-                <Routes>
-                    <Route
-                        path='/'
-                        element={<Navigate to='/products' replace />}
-                    />
-                    <Route
-                        path='/products'
-                        element={
-                            <Products
-                                products={products}
-                                user={user}
-                                cart={cart}
-                                handleAddToOrder={handleAddToOrder}
-                            />
-                        }
-                    />
-                    <Route
-                        path='/products/add'
-                        element={
-                            <ProductsListing
-                                user={user}
-                                products={products}
-                                setProducts={setProducts}
-                            />
-                        }
-                    />
-                    <Route path='/shops' element={<Shops />} />
-                    <Route path='/regis' element={<ShopForm />} />
-                    <Route
-                        path='/cart'
-                        element={
-                            <Cart
-                                user={user}
-                                cart={cart}
-                                handleChangeQty={handleChangeQty}
-                                handleCheckOut={handleCheckOut}
-                            />
-                        }
-                    />
-                    <Route
-                        path='/login'
-                        element={<LoginForm user={user} setUser={setUser} />}
-                    />
-                    <Route
-                        path='/signup'
-                        element={<SignUpForm user={user} setUser={setUser} />}
-                    />
-                    <Route path='*' element={<Navigate to='/' replace />} />
-                </Routes>
-            </main>
-            <footer></footer>
-        </>
+        <Center>
+            <div className='container mx-auto'>
+                <header className='flex justify-center'>
+                    <NavBar user={user} setUser={setUser} />
+                </header>
+                <main>
+                    <Routes>
+                        <Route
+                            path='/'
+                            element={<Navigate to='/products' replace />}
+                        />
+                        <Route
+                            path='/products'
+                            element={
+                                <Products
+                                    products={products}
+                                    user={user}
+                                    cart={cart}
+                                    handleAddToOrder={handleAddToOrder}
+                                />
+                            }
+                        />
+                        <Route
+                            path='/products/add'
+                            element={
+                                <ProductsListing
+                                    user={user}
+                                    products={products}
+                                    setProducts={setProducts}
+                                />
+                            }
+                        />
+                        <Route path='/shops' element={<Shops />} />
+                        <Route path='/regis' element={<ShopForm />} />
+                        <Route
+                            path='/cart'
+                            element={
+                                <Cart
+                                    user={user}
+                                    cart={cart}
+                                    handleChangeQty={handleChangeQty}
+                                    handleCheckOut={handleCheckOut}
+                                />
+                            }
+                        />
+                        <Route
+                            path='/login'
+                            element={
+                                <LoginForm user={user} setUser={setUser} />
+                            }
+                        />
+                        <Route
+                            path='/signup'
+                            element={
+                                <SignUpForm user={user} setUser={setUser} />
+                            }
+                        />
+                        <Route path='*' element={<Navigate to='/' replace />} />
+                    </Routes>
+                </main>
+                <footer></footer>
+            </div>
+        </Center>
     );
 }
 
