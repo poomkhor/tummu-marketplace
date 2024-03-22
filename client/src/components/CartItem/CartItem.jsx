@@ -3,7 +3,7 @@ import {
     CardBody,
     CardFooter,
     Image,
-    Stack,
+    HStack,
     Heading,
     Text,
     Button,
@@ -15,22 +15,23 @@ export function CartItem({ lineItem, handleChangeQty, handleCheckOut }) {
             direction={{ base: 'column', sm: 'row' }}
             overflow='hidden'
             variant='outline'>
-            <Stack>
-                <CardBody>
+            <CardBody>
+                <div className='flex justify-between'>
                     <Image
+                        className='pr-20'
                         src={`/user-upload/${lineItem.item.images[0]?.name}`}
                         alt={lineItem.item.name}
                     />
-                    <aside>
+                    <div className='w-80'>
                         <Heading size='md'>{lineItem.item.name}</Heading>
                         <Text py='2'>{lineItem.item.description}</Text>
-                    </aside>
-                    <aside>
+                    </div>
+                    <div>
                         <Text>{lineItem.qty}</Text>
                         <Text>{lineItem.item.price}</Text>
-                    </aside>
-                </CardBody>
-            </Stack>
+                    </div>
+                </div>
+            </CardBody>
         </Card>
     );
 }

@@ -35,10 +35,14 @@ export function LoginForm({ setUser }) {
 
     return (
         <div className='flex justify-center mt-10 mb-60'>
-            <div className={`form-container`}>
-                <form autoComplete='off' onSubmit={handleSubmit}>
+            <div className='font-mono text-2xl'>
+                <form
+                    className='flex flex-col'
+                    autoComplete='off'
+                    onSubmit={handleSubmit}>
                     <label>Email</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='email'
                         name='email'
                         value={form.email}
@@ -47,20 +51,26 @@ export function LoginForm({ setUser }) {
                     />
                     <label>Password</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='password'
                         name='password'
                         value={form.password}
                         onChange={handleChange}
                         required
                     />
-                    <button type='submit' disabled={disable}>
+                    <button
+                        className='bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full mb-10'
+                        type='submit'
+                        disabled={disable}>
                         Login
                     </button>
                 </form>
                 <div>Do not have an account yet.</div>
-                <button>
-                    <a href='/signup'>Sign Up</a>
-                </button>
+                <div className='flex justify-center'>
+                    <button className='bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full mb-10'>
+                        <a href='/signup'>Sign Up</a>
+                    </button>
+                </div>
             </div>
             <p className='error-message'>{error}</p>
         </div>

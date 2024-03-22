@@ -14,10 +14,10 @@ export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
     ));
 
     return (
-        <>
-            <div>Order Summary</div>
-            <div className='OrderDetail'>
-                <div className='section-heading'>
+        <div className='flex flex-col pl-20'>
+            <div className='font-mono text-2xl font-bold'>Order Summary</div>
+            <div className='font-mono text-lg'>
+                <div className='flex justify-left'>
                     {cart.isPaid ? (
                         <span>
                             ORDER{' '}
@@ -26,20 +26,22 @@ export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
                     ) : (
                         <span>NEW ORDER</span>
                     )}
-                    <span>{new Date(cart.updatedAt).toLocaleDateString()}</span>
+                    <span className='pl-10'>
+                        {new Date(cart.updatedAt).toLocaleDateString()}
+                    </span>
                 </div>
-                <div className='line-item-container flex-ctr-ctr flex-col scroll-y'>
+                <div className='pt-10'>
                     {lineItems.length ? (
                         <>
                             {lineItems}
-                            <section className='total'>
+                            <section className='flex justify-between pl-40 pt-10'>
                                 {cart.isPaid ? (
                                     <span className='right'>
                                         TOTAL&nbsp;&nbsp;
                                     </span>
                                 ) : (
                                     <button
-                                        className='btn-sm'
+                                        className='bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full'
                                         onClick={() => handleCheckOut()}
                                         disabled={!lineItems.length}>
                                         CHECKOUT
@@ -56,6 +58,6 @@ export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
                     )}
                 </div>
             </div>
-        </>
+        </div>
     );
 }

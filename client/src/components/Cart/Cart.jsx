@@ -9,25 +9,29 @@ export function Cart({ user, cart, handleChangeQty, handleCheckOut }) {
 
     return (
         <>
-            <div>Order Details</div>
+            <div className='font-mono text-2xl font-bold pt-20 pb-10 flex justify-center'>
+                Order Details
+            </div>
             {cart.lineItems.length ? (
-                <HStack>
-                    <VStack spacing={5} align='stretch'>
-                        {cart.lineItems.map((item) => (
-                            <CartItem
-                                key={item._id}
-                                lineItem={item}
-                                isPaid={cart.isPaid}
-                                handleChangeQty={handleChangeQty}
-                            />
-                        ))}
-                    </VStack>
-                    <CartSummary
-                        cart={cart}
-                        handleChangeQty={handleChangeQty}
-                        handleCheckOut={handleCheckOut}
-                    />
-                </HStack>
+                <div className='flex justify-center'>
+                    <HStack>
+                        <VStack spacing={5} align='stretch'>
+                            {cart.lineItems.map((item) => (
+                                <CartItem
+                                    key={item._id}
+                                    lineItem={item}
+                                    isPaid={cart.isPaid}
+                                    handleChangeQty={handleChangeQty}
+                                />
+                            ))}
+                        </VStack>
+                        <CartSummary
+                            cart={cart}
+                            handleChangeQty={handleChangeQty}
+                            handleCheckOut={handleCheckOut}
+                        />
+                    </HStack>
+                </div>
             ) : (
                 <div>No Product in Cart!</div>
             )}

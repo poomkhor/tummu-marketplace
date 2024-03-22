@@ -41,11 +41,15 @@ export function SignUpForm({ setUser }) {
         form.password !== form.confirmPassword;
 
     return (
-        <div className='flex justify-center'>
-            <div className={`form-container`}>
-                <form autoComplete='off' onSubmit={handleSubmit}>
+        <div className='flex justify-center mt-10 mb-60'>
+            <div className='font-mono text-2xl'>
+                <form
+                    className='flex flex-col'
+                    autoComplete='off'
+                    onSubmit={handleSubmit}>
                     <label>Name</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='text'
                         name='name'
                         value={form.name}
@@ -54,6 +58,7 @@ export function SignUpForm({ setUser }) {
                     />
                     <label>Email</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='email'
                         name='email'
                         value={form.email}
@@ -62,6 +67,7 @@ export function SignUpForm({ setUser }) {
                     />
                     <label>Password</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='password'
                         name='password'
                         value={form.password}
@@ -70,13 +76,17 @@ export function SignUpForm({ setUser }) {
                     />
                     <label>Confirm Password</label>
                     <input
+                        className='bg-gray-200 rounded-sm mb-5'
                         type='password'
                         name='confirmPassword'
                         value={form.confirmPassword}
                         onChange={handleChange}
                         required
                     />
-                    <button type='submit' disabled={disable}>
+                    <button
+                        className='bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-full mb-10'
+                        type='submit'
+                        disabled={disable}>
                         Sign up
                     </button>
                 </form>

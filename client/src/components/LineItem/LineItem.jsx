@@ -4,16 +4,17 @@ export function LineItem({ lineItem, isPaid, handleChangeQty }) {
     console.log(lineItem);
     console.log(lineItem.extPrice);
     return (
-        <div className='LineItem'>
-            <div className='flex-ctr-ctr'>{lineItem.item.emoji}</div>
+        <div className='flex justify-around'>
             <div className='flex-ctr-ctr flex-col'>
-                <span className='align-ctr'>{lineItem.item.name}</span>
-                <span>{lineItem.item.price.toFixed(2)}</span>
+                <span className='pr-20'>{lineItem.item.name}</span>
+                <span className='pr-10 w-80'>
+                    {lineItem.item.price.toFixed(2)}
+                </span>
             </div>
             <div className='qty' style={{ justifyContent: isPaid && 'center' }}>
                 {!isPaid && (
                     <button
-                        className='btn-xs'
+                        className='pr-5'
                         onClick={() =>
                             handleChangeQty(lineItem.item._id, lineItem.qty - 1)
                         }>
@@ -23,7 +24,7 @@ export function LineItem({ lineItem, isPaid, handleChangeQty }) {
                 <span>{lineItem.qty}</span>
                 {!isPaid && (
                     <button
-                        className='btn-xs'
+                        className='pl-5 pr-10'
                         onClick={() =>
                             handleChangeQty(lineItem.item._id, lineItem.qty + 1)
                         }>

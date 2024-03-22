@@ -3,7 +3,7 @@ import { logout } from '../../utilities/users-service';
 
 export function NavBar({ user, setUser }) {
     return (
-        <nav className='font-mono text-2xl font-bold'>
+        <nav className='font-mono text-3xl font-bold pt-5'>
             {user ? (
                 <>
                     <Link to='/products'>Products</Link>
