@@ -13,9 +13,9 @@ At Tummu Market, we bridge the gap between artisans and shoppers, showcasing the
 
 Join us in embracing the beauty of craftsmanship and making a meaningful impact with every purchase. Start your journey at Tummu Market, where every item tells a story and supports the talented artisans who bring them to life.
 
-## 🔎 Explore the App
+<!-- ## 🔎 Explore the App
 
-Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer.fly.dev/) now live on fly.io.
+Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer.fly.dev/) now live on fly.io. -->
 
 ## 📝 Planning & Problem Solving 🚩
 
