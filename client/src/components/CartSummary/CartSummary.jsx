@@ -13,7 +13,7 @@ export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
     ));
 
     return (
-        <div className='flex flex-col pl-20'>
+        <div className='flex flex-col pl-10'>
             <div className='font-mono text-2xl font-bold'>Order Summary</div>
             <div className='font-mono text-lg'>
                 <div className='flex justify-left'>

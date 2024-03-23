@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import * as productsAPI from '../../utilities/products-api';
 
-export function ProductForm({ user, products, setProducts }) {
+export function ProductForm({ user, products, setProducts, getProducts }) {
     const [form, setForm] = useState({
         name: '',
         category: '',
@@ -47,21 +47,16 @@ export function ProductForm({ user, products, setProducts }) {
             const response = await axios.post(
                 '/api/products/uploads',
                 formData
-                // {
-                //     headers: {
-                //         'Content-Type': 'multipart/form-data',
-                //     },
-                // }
             );
             console.log(
                 'Product images uploaded successfully:',
                 response.data.files
             );
+            getProducts();
             navigate('/products/add');
         } catch (error) {
             console.error('Error uploading product images:', error);
         }
-        // await productsAPI.create(form);
     };
 
     const disabled =

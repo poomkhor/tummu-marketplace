@@ -26,17 +26,18 @@ function App() {
 
     const navigate = useNavigate();
 
-    useEffect(function () {
-        async function getProducts() {
-            const products = await getAll();
-            setProducts(products);
-        }
-        getProducts();
+    async function getProducts() {
+        const products = await getAll();
+        setProducts(products);
+    }
 
-        async function getCart() {
-            const cart = await ordersAPI.getCart();
-            setCart(cart);
-        }
+    async function getCart() {
+        const cart = await ordersAPI.getCart();
+        setCart(cart);
+    }
+
+    useEffect(function () {
+        getProducts();
         getCart();
     }, []);
 
@@ -87,6 +88,7 @@ function App() {
                                     user={user}
                                     products={products}
                                     setProducts={setProducts}
+                                    getProducts={getProducts}
                                 />
                             }
                         />

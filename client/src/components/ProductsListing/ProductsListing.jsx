@@ -17,27 +17,28 @@ import {
 } from '@chakra-ui/react';
 import { ProductForm } from '../ProductForm/ProductForm';
 
-export function ProductsListing({ user, products, setProducts }) {
+export function ProductsListing({ user, products, setProducts, getProducts }) {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const productsListing = products.map((product) => {
         if (product.user === user.sub) {
             return (
-                <Card maxW='sm' className='font-mono'>
-                    <CardBody>
-                        {/* <Image src={product.img} borderRadius='lg' /> */}
-                        <img
-                            src={`/user-upload/${product.images[0]?.name}`}
-                            alt={product.name}
-                        />
-                        <Stack mt='6' spacing='3'>
-                            <Heading size='md'>{product.name}</Heading>
-                            <Text>{product.description}</Text>
-                            <Text color='blue.600' fontSize='2xl'>
-                                ${product.price}
-                            </Text>
-                        </Stack>
-                    </CardBody>
-                </Card>
+                <div key={product._id}>
+                    <Card maxW='sm' className='font-mono'>
+                        <CardBody>
+                            <img
+                                src={`/user-upload/${product.images[0]?.name}`}
+                                alt={product.name}
+                            />
+                            <Stack mt='6' spacing='3'>
+                                <Heading size='md'>{product.name}</Heading>
+                                <Text>{product.description}</Text>
+                                <Text color='blue.600' fontSize='2xl'>
+                                    ${product.price}
+                                </Text>
+                            </Stack>
+                        </CardBody>
+                    </Card>
+                </div>
             );
         }
     });
@@ -59,6 +60,7 @@ export function ProductsListing({ user, products, setProducts }) {
                                     user={user}
                                     products={products}
                                     setProducts={setProducts}
+                                    getProducts={getProducts}
                                 />
                             </ModalBody>
 

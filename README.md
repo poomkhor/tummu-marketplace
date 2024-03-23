@@ -24,7 +24,7 @@ Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer
 -   Using MERN-starter to build the project structure
 
 <img src="static/wireframe.jpg" style="max-width:85%;">
-<!-- <img src="staticfiles/planner/images/ERD.png" style="max-width:85%;"> -->
+<img src="static/ERD.jpg" style="max-width:85%;">
 
 ## 📷 App Screenshots
 

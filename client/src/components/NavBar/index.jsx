@@ -6,7 +6,9 @@ export function NavBar({ user, setUser }) {
         <nav className='font-mono text-3xl font-bold pt-5 flex justify-between'>
             {user ? (
                 <>
-                    <Link className='pr-60 text-teal-500'>TUMMU MARKET</Link>
+                    <Link className='pr-60 text-teal-500' to='/products'>
+                        TUMMU MARKET
+                    </Link>
                     <Link to='/products'>Products</Link>
                     {/* <Link to='/shops'>Shops</Link> */}
                     <Link className='pr-60' to='/products/add'>
@@ -26,7 +28,9 @@ export function NavBar({ user, setUser }) {
                 </>
             ) : (
                 <>
-                    <Link className='pr-60 text-teal-500'>TUMMU MARKET</Link>
+                    <Link className='pr-60 text-teal-500' to='/products'>
+                        TUMMU MARKET
+                    </Link>
                     <Link className='pr-60' to='/products'>
                         Products
                     </Link>
