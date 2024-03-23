@@ -1,5 +1,4 @@
 import { LineItem } from '../LineItem/LineItem';
-import './CartSummary.css';
 
 export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
     if (!cart) return null;
@@ -34,7 +33,7 @@ export function CartSummary({ cart, handleChangeQty, handleCheckOut }) {
                     {lineItems.length ? (
                         <>
                             {lineItems}
-                            <section className='flex justify-between pl-40 pt-10'>
+                            <section className='flex justify-between pl-40 pt-10 font-bold'>
                                 {cart.isPaid ? (
                                     <span className='right'>
                                         TOTAL&nbsp;&nbsp;

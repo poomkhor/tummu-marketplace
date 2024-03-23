@@ -3,12 +3,15 @@ import { logout } from '../../utilities/users-service';
 
 export function NavBar({ user, setUser }) {
     return (
-        <nav className='font-mono text-3xl font-bold pt-5'>
+        <nav className='font-mono text-3xl font-bold pt-5 flex justify-between'>
             {user ? (
                 <>
+                    <Link className='pr-60 text-teal-500'>TUMMU MARKET</Link>
                     <Link to='/products'>Products</Link>
                     {/* <Link to='/shops'>Shops</Link> */}
-                    <Link to='/products/add'>+ Product</Link>
+                    <Link className='pr-60' to='/products/add'>
+                        + Product
+                    </Link>
                     <Link to='/cart'>Cart</Link>
                     <Link
                         to=''
@@ -23,7 +26,10 @@ export function NavBar({ user, setUser }) {
                 </>
             ) : (
                 <>
-                    <Link to='/products'>Products</Link>
+                    <Link className='pr-60 text-teal-500'>TUMMU MARKET</Link>
+                    <Link className='pr-60' to='/products'>
+                        Products
+                    </Link>
                     {/* <Link to='/shops'>Shops</Link> */}
                     <Link to='/signup'>Sign Up</Link>
                     <Link to='/login'>Log In</Link>

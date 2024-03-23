@@ -1,10 +1,8 @@
-import './LineItem.css';
-
 export function LineItem({ lineItem, isPaid, handleChangeQty }) {
     console.log(lineItem);
     console.log(lineItem.extPrice);
     return (
-        <div className='flex justify-around'>
+        <div className='flex justify-around font-bold'>
             <div className='flex-ctr-ctr flex-col'>
                 <span className='pr-20'>{lineItem.item.name}</span>
                 <span className='pr-10 w-80'>

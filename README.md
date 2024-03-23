@@ -1,11 +1,11 @@
 <!-- <p align='center'><img src="staticfiles/planner/images/mainlogo.png" width="400"></p> -->
 <!-- NEED NEW LOGO -->
 
-# ✈️ Tummu Marketplace ✈️
+# 🏪 Tummu Marketplace 🏪
 
 This a multivendor ecommerce website project using MERN stack
 
-## 🌏 Introduction
+## 👐 Introduction
 
 Welcome to Tummu Market, your premier destination for handcrafted treasures from artisans worldwide. Our platform is a celebration of craftsmanship, offering a curated selection of unique products ranging from home decor to jewelry and gifts.
 
@@ -23,10 +23,12 @@ Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer
 -   Draw up wireframe
 -   Using MERN-starter to build the project structure
 
-<!-- <img src="staticfiles/planner/images/wireframes.png" style="max-width:85%;">
-<img src="staticfiles/planner/images/ERD.png" style="max-width:85%;"> -->
+<img src="static/wireframe.jpg" style="max-width:85%;">
+<!-- <img src="staticfiles/planner/images/ERD.png" style="max-width:85%;"> -->
 
 ## 📷 App Screenshots
+
+<img src="static/productpage.jpg" style="max-width:85%;">
 
 ## 🤖 Technology used:
 
@@ -42,11 +44,13 @@ Discover the refined version of the [TripMixer Travel App](https://sei-tripmixer
 The whole react interface is a challenge to work with but I slowly become more accustomed and get each functionality working.
 Challenging feature
 
--   Uploading images
+-   Uploading images in React JS
 -   Working with Tailwind CSS
 
 ## 🚀 Future features
 
+-   Add web responsive with tailwind
+-   Add category filter
 -   Add 'Shop' features to display shop and products in the shop.
 -   Add checkout features with stripe.
 -   Add counter display on 'Cart' navbar when product is added to cart.

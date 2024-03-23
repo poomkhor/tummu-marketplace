@@ -19,10 +19,9 @@ export function ProductItem({ product, handleAddToOrder, user, cart }) {
     };
 
     return (
-        <div className='font-mono'>
+        <div className='font-mono container mx-auto mt-20 flex justify-center'>
             <Card maxW='sm'>
-                <CardBody>
-                    {/* <Image src={product.img} borderRadius='lg' /> */}
+                <CardBody className='flex flex-col justify-center align-middle'>
                     <img
                         src={`/user-upload/${product.images[0]?.name}`}
                         alt={product.name}

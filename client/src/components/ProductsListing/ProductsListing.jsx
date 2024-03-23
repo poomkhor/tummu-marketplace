@@ -46,39 +46,39 @@ export function ProductsListing({ user, products, setProducts }) {
         <center>
             <div className='flex justify-center mt-10 mb-10'>
                 <Button onClick={onOpen}>Add New Product</Button>
+                <div className='flex justify-around'>
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                            <ModalHeader>
+                                Fill in product information
+                            </ModalHeader>
+                            <ModalCloseButton />
+                            <ModalBody>
+                                <ProductForm
+                                    user={user}
+                                    products={products}
+                                    setProducts={setProducts}
+                                />
+                            </ModalBody>
+
+                            <ModalFooter>
+                                <Button
+                                    type='submit'
+                                    form='product-form'
+                                    colorScheme='blue'
+                                    mr={3}
+                                    onClick={onClose}>
+                                    Submit
+                                </Button>
+                                {/* <Button variant='ghost'>Secondary Action</Button> */}
+                            </ModalFooter>
+                        </ModalContent>
+                    </Modal>
+                </div>
             </div>
             {productsListing.length ? (
                 <>
-                    <div className='flex justify-around'>
-                        <Modal isOpen={isOpen} onClose={onClose}>
-                            <ModalOverlay />
-                            <ModalContent>
-                                <ModalHeader>
-                                    Fill in product information
-                                </ModalHeader>
-                                <ModalCloseButton />
-                                <ModalBody>
-                                    <ProductForm
-                                        user={user}
-                                        products={products}
-                                        setProducts={setProducts}
-                                    />
-                                </ModalBody>
-
-                                <ModalFooter>
-                                    <Button
-                                        type='submit'
-                                        form='product-form'
-                                        colorScheme='blue'
-                                        mr={3}
-                                        onClick={onClose}>
-                                        Submit
-                                    </Button>
-                                    {/* <Button variant='ghost'>Secondary Action</Button> */}
-                                </ModalFooter>
-                            </ModalContent>
-                        </Modal>
-                    </div>
                     <div className='container mx-auto'>
                         <SimpleGrid
                             spacing={4}

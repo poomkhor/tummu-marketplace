@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { signUp } from '../../utilities/users-service';
+import { useNavigate } from 'react-router-dom';
 
 export function SignUpForm({ setUser }) {
     const [form, setForm] = useState({
@@ -10,6 +11,8 @@ export function SignUpForm({ setUser }) {
     });
 
     const [error, setError] = useState(null);
+
+    const navigate = useNavigate();
 
     const handleChange = (event) => {
         setForm({
@@ -28,6 +31,7 @@ export function SignUpForm({ setUser }) {
         try {
             const user = await signUp(userData);
             setUser(user);
+            navigate('/login');
         } catch (e) {
             console.error(e);
             setError(`An error occurred with the sign up.`);
